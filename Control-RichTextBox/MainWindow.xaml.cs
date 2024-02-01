@@ -27,7 +27,18 @@ namespace Control_RichTextBox
 
         private void btnTest_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            // Paragraph을 이용한 사용법
+            Paragraph paragraph = new Paragraph();
+            Run run = new Run("안녕하세요.");
+            Run run2 = new Run("심유나") { Foreground = Brushes.HotPink, FontWeight = FontWeights.Bold };
+            Run run3 = new Run("입니다.");
+            paragraph.Inlines.Add(run);
+            paragraph.Inlines.Add(run2);
+            paragraph.Inlines.Add(run3);
+            FlowDocument flowDocument = new FlowDocument();
+            flowDocument.Blocks.Add(paragraph);
+
+            richTextBox1.Document = flowDocument;
         }
 
         private void btnBold_Click(object sender, RoutedEventArgs e)
