@@ -27,14 +27,27 @@ namespace Control_RichTextBox
             // TextRange를 이용하여 텍스트를 추가하기
             TextRange textRange = new TextRange(richTextBox1.Document.ContentStart, richTextBox1.Document.ContentEnd);
             textRange.Text = "안녕하세요. 심유나입니다.";
+
+            textRange.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
+            textRange.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(Colors.HotPink));
         }
 
         private void btnTest_Click(object sender, RoutedEventArgs e)
         {
             // TextRange를 이용하여 속성을 추가하기
             TextRange textRange = richTextBox1.Selection;
-            textRange.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
-            textRange.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(Colors.HotPink));
+
+            var fontWeightProperty = textRange.GetPropertyValue(TextElement.FontWeightProperty);
+            if (fontWeightProperty is FontWeight fontWeight && fontWeight == FontWeights.Bold)
+            {
+                textRange.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
+            }
+
+            var foregroundProperty = textRange.GetPropertyValue(TextElement.ForegroundProperty);
+            if (foregroundProperty is SolidColorBrush colorBrush && colorBrush.Color == Colors.HotPink)
+            {
+                textRange.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(Colors.Black));
+            }
 
             //// Paragraph을 이용한 사용법
             //Paragraph paragraph = new Paragraph();
@@ -47,7 +60,7 @@ namespace Control_RichTextBox
             //FlowDocument flowDocument = new FlowDocument();
             //flowDocument.Blocks.Add(paragraph);
 
-            //richTextBox1.Document = flowDocument;
+                //richTextBox1.Document = flowDocument;
         }
 
         private void btnBold_Click(object sender, RoutedEventArgs e)
