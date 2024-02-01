@@ -65,37 +65,37 @@ namespace Control_RichTextBox
 
         private void btnBold_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.SetSelectionBold();
         }
 
         private void btnItalic_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.SetSelectionItalic();
         }
 
         private void btnUnderline_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.SetSelectionUnderline();
         }
 
         private void btnStrikethrough_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.SetSelectionStrikethrough();
         }
 
         private void btnFontSize_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.SetSelectionFontSize(50);
         }
 
         private void btnFontFamily_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.SetSelectionFontFamily(new FontFamily("궁서"));
         }
 
         private void btnColor_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.SetSelectionColor(Colors.Green);
         }
 
         private void btnCaretBrush_Click(object sender, RoutedEventArgs e)
