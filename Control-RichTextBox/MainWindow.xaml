@@ -37,50 +37,51 @@
 
             <Button Grid.Column="0"
                 Style="{StaticResource btn}"
-                Content="Test"/>
+                Content="Test" Click="btnTest_Click"/>
             <Button Grid.Column="1"
                 Style="{StaticResource btn}"
-                Content="Bold"/>
+                Content="Bold" Click="btnBold_Click"/>
             <Button Grid.Column="2"
                 Style="{StaticResource btn}"
-                Content="Italic"/>
+                Content="Italic" Click="btnItalic_Click"/>
             <Button Grid.Column="3"
                 Style="{StaticResource btn}"
-                Content="Underline"/>
+                Content="Underline" Click="btnUnderline_Click"/>
             <Button Grid.Column="4"
                 Style="{StaticResource btn}"
-                Content="Strikethrough"/>
+                Content="Strikethrough" Click="btnStrikethrough_Click"/>
             <Button Grid.Column="5"
                 Style="{StaticResource btn}"
-                Content="FontSize"/>
+                Content="FontSize" Click="btnFontSize_Click"/>
             <Button Grid.Column="6"
                 Style="{StaticResource btn}"
-                Content="FontFamily"/>
+                Content="FontFamily" Click="btnFontFamily_Click"/>
             <Button Grid.Column="7"
                 Style="{StaticResource btn}"
-                Content="Color"/>
+                Content="Color" Click="btnColor_Click"/>
             <Button Grid.Column="8"
                 Style="{StaticResource btn}"
-                Content="CaretBrush"/>
+                Content="CaretBrush" Click="btnCaretBrush_Click"/>
             <Button Grid.Column="9"
                 Style="{StaticResource btn}"
-                Content="Image"/>
+                Content="Image" Click="btnImage_Click"/>
             <Button Grid.Column="10"
                 Style="{StaticResource btn}"
-                Content="RTF Export"/>
+                Content="RTF Export" Click="btnRTFExport_Click"/>
             <Button Grid.Column="11"
                 Style="{StaticResource btn}"
-                Content="RTF Import"/>
+                Content="RTF Import" Click="btnRTFImport_Click"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="339*"/>
+                <ColumnDefinition Width="350*"/>
             </Grid.ColumnDefinitions>
 
             <RichTextBox Grid.Column="0" 
                          x:Name="richTextBox1"
-                         BorderBrush="Blue">
+                         BorderBrush="Blue" Grid.ColumnSpan="2">
                 <RichTextBox.Resources>
                     <Style TargetType="{x:Type Paragraph}">
                         <Setter Property="LineHeight" Value="1"></Setter>
@@ -88,16 +89,10 @@
                 </RichTextBox.Resources>
             </RichTextBox>
 
-            <RichTextBox Grid.Column="1" 
+            <RichTextBox Grid.Column="2" 
                          x:Name="richTextBox2"
                          BorderBrush="Blue">
-                <FlowDocument>
-                    <Paragraph>
-                        <Run>안녕하세요.</Run>
-                        <Run Foreground="HotPink" FontWeight="Black">심유나</Run>
-                        <Run>입니다.</Run>
-                    </Paragraph>
-                </FlowDocument>
+
             </RichTextBox>
         </Grid>
     </Grid>
