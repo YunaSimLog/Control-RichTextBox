@@ -101,6 +101,53 @@ namespace Control_RichTextBox
                 richTextBox.SetSelectionImage(image);
             }
         }
+
+        public static string GetRtf(this RichTextBox richTextBox)
+        {
+            TextRange textRange = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd);
+            return GetRtfByTextRange(textRange);
+        }
+
+        private static string GetRtfByTextRange(TextRange textRange)
+        {
+            using MemoryStream ms = new();
+            textRange.Save(ms, DataFormats.Rtf);
+            return Encoding.UTF8.GetString(ms.ToArray());
+        }
+
+        public static void SetRtf(this RichTextBox richTextBox, string rtf)
+        {
+            TextRange textRange = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd);
+            LoadRtfToTextRange(textRange, rtf);
+        }
+
+        private static void LoadRtfToTextRange(TextRange textRange, string rtf)
+        {
+            using MemoryStream ms = new(Encoding.UTF8.GetBytes(rtf));
+            textRange.Load(ms, DataFormats.Rtf);
+        }
+
+        public static string GetSelectionRtf(this RichTextBox richTextBox)
+        {
+            return GetRtfByTextRange(richTextBox.Selection);
+        }
+
+        public static void SetSelectionRtf(this RichTextBox richTextBox, string rtf)
+        {
+            LoadRtfToTextRange(richTextBox.Selection, rtf);
+        }
+
+        public static void SetText(this RichTextBox richTextBox, string text)
+        {
+            TextRange textRange = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd);
+            textRange.Text = text;
+        }
+
+        public static string GetText(this RichTextBox richTextBox)
+        {
+            TextRange textRange = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd);
+            return textRange.Text;
+        }
     }
 
 }

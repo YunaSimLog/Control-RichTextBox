@@ -111,12 +111,12 @@ namespace Control_RichTextBox
 
         private void btnRTFExport_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox2.SetText(richTextBox1.GetRtf());
         }
 
         private void btnRTFImport_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.SetRtf(richTextBox2.GetText());
         }
     }
 }
