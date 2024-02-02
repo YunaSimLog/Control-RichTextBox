@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Control_RichTextBox
 {
@@ -82,5 +82,25 @@ namespace Control_RichTextBox
         {
             SetPropertyValue(richTextBox, TextElement.ForegroundProperty, new SolidColorBrush(color));
         }
+
+        public static void SetSelectionImage(this RichTextBox richTextBox, BitmapImage image)
+        {
+            if (image.Width > 0 && image.Height > 0)
+            {
+                InlineUIContainer inline = new InlineUIContainer(new Image { Source = image, Width = image.Width, Height = image.Height });
+                TextPointer tp = richTextBox.CaretPosition;
+                tp.Paragraph.Inlines.Add(inline);
+            }
+        }
+
+        public static void SetSelectionImage(this RichTextBox richTextBox, string imagePath)
+        {
+            if (File.Exists(imagePath))
+            {
+                BitmapImage image = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
+                richTextBox.SetSelectionImage(image);
+            }
+        }
     }
+
 }

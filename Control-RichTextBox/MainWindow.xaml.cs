@@ -60,7 +60,7 @@ namespace Control_RichTextBox
             //FlowDocument flowDocument = new FlowDocument();
             //flowDocument.Blocks.Add(paragraph);
 
-                //richTextBox1.Document = flowDocument;
+            //richTextBox1.Document = flowDocument;
         }
 
         private void btnBold_Click(object sender, RoutedEventArgs e)
@@ -100,12 +100,13 @@ namespace Control_RichTextBox
 
         private void btnCaretBrush_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.CaretBrush = Brushes.Red;
         }
 
         private void btnImage_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            richTextBox1.SetSelectionImage("../../../Resources/Scorpion.png");
+            //richTextBox1.SetSelectionImage("tmp.jpg");
         }
 
         private void btnRTFExport_Click(object sender, RoutedEventArgs e)
