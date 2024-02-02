@@ -92,7 +92,30 @@
             <RichTextBox Grid.Column="2" 
                          x:Name="richTextBox2"
                          BorderBrush="Blue">
+                <RichTextBox.Resources>
+                    <Style TargetType="{x:Type Paragraph}">
+                        <Setter Property="LineHeight" Value="4"/>
+                    </Style>
+                </RichTextBox.Resources>
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="안녕하세요."/>
+                        <Run Text="안녕하세요."/>
+                        <Run Text="안녕하세요."/>
+                    </Paragraph>
 
+                    <Paragraph>
+                        <Run Text="안녕하세요."/>
+                        <Run Text="안녕하세요."/>
+                        <Run Text="안녕하세요."/>
+                    </Paragraph>
+
+                    <Paragraph>
+                        <Run Text="안녕하세요."/>
+                        <Run Text="안녕하세요."/>
+                        <Run Text="안녕하세요."/>
+                    </Paragraph>
+                </FlowDocument>
             </RichTextBox>
         </Grid>
     </Grid>
